@@ -4,7 +4,7 @@
     <title>Clon de Yapo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/3.4.1/flatly/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-bfWZLPtvQKHg/nZNhaO/ZW4Ba8ISud5CtEjnCTU6OR1yOq5zrrF+JP2o7om6rzLf" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -12,6 +12,13 @@
   </head>
 
   <body>
+    <div class="col-lg-6">
+        <% if user_signed_in? %>
+        <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "btn btn-primary") %>
+        <% else %>
+        <%= link_to('Login', new_user_session_path, class: "btn btn-info")  %>
+        <% end %>
+    </div>
     <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
