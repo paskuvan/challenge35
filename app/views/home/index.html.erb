@@ -1,2 +1,6 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<%= link_to("Ver Productos", products_path(), class: "btn btn-info")%>
+<% if current_user %>
+<%= link_to("Mis Compras", home_purchases_path(), class: "btn btn-danger")%>
+<%= link_to("Mis Ventas", home_sales_path(), class: "btn btn-warning")%>
+<%= link_to("Ver Usuarios", users_path(), class: "btn btn-secondary")%>
+<% end %>
